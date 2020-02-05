@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop(){
-  //test to see if git is working
+  //test to see if git is workin
   val1 = analogRead(PinIn1);
   //val2 = analogRead(PinIn2);
   //LEDVAL=val1-val2;
