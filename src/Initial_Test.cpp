@@ -15,6 +15,7 @@ void setup() {
 
 void ambientlight (){
 if (flag==false){
+  
   delay(2000);
   val1=analogRead(PinIn1);
   AL=val1;
