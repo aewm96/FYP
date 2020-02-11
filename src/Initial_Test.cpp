@@ -15,9 +15,11 @@ void setup() {
 
 void ambientlight (){
 if (flag==false){
-  
-  delay(2000);
-  val1=analogRead(PinIn1);
+  delay(200);
+  for(int i=0; i<100; i++){
+     val1+=analogRead(PinIn1);
+  }
+  val1=val1/100;
   AL=val1;
   Serial.println("the AL values is: ");
   Serial.println(AL);
@@ -25,34 +27,30 @@ if (flag==false){
 }
 }
 
+void READ_TRIGG(){
+    if (val1>=AL-2 && val1 <=AL+8){
+      if (val1>=AL-2 && val1 <=AL+8){
+        if (val1>=AL-2 && val1 <=AL+8){
+          if (val1>=AL-2 && val1 <=AL+8){
+            if (val1>=AL-2 && val1 <=AL+8){
+              Serial.println("1");
+            } 
+            else if (val1<AL-2){
+              Serial.println("0");
+            }
+            else {
+              Serial.println("Error");
+            }
+          }
+        }
+      }
+  }
+
+}
+
 void loop(){
+  READ_TRIGG();
   ambientlight();
-
-  val1 = analogRead(PinIn1);
-  //val2 = analogRead(PinIn2);
-
-if (val1>=AL-2 && val1 <=AL+8)
-{
-  //Serial.println("0");
-  Serial.println(val1);
-  //Serial.println(" ");
-}
-else if (val1<AL-2)
-{
-  //Serial.println("1");
-  Serial.println(val1);
-  //Serial.println(" ");
-}
-else
-{
-  //Serial.println("Error");
-  Serial.println(val1);
-  //Serial.println(" ");
-}
-  /*Serial.print(val1);
-  Serial.println();
-  Serial.print(val2);
-  Serial.println();*/
-  delay(250);
-  
+  //val1 = analogRead(PinIn1);
+  //Serial.println(val1);
  }
