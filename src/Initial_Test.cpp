@@ -7,6 +7,7 @@ double val1=0;
 double AL=0;
 bool flag = false;
 
+
 void setup() {  
   Serial.begin(9600);
   pinMode(PinIn1, INPUT); //Photodiode 1
@@ -27,29 +28,35 @@ if (flag==false){
 }
 }
 
-void READ_TRIGG(){
-    if (val1>=AL-2 && val1 <=AL+8){
-      if (val1>=AL-2 && val1 <=AL+8){
+
+void loop(){
+  if (val1>=AL-2 && val1 <=AL+8){
+      if (val1<AL-2){
         if (val1>=AL-2 && val1 <=AL+8){
-          if (val1>=AL-2 && val1 <=AL+8){
+          if (val1<AL-2){
             if (val1>=AL-2 && val1 <=AL+8){
-              Serial.println("1");
-            } 
-            else if (val1<AL-2){
-              Serial.println("0");
-            }
-            else {
-              Serial.println("Error");
+              if (val1<AL-2){
+                if (val1>=AL-2 && val1 <=AL+8){
+                  if (val1<AL-2){
+                    for(int i=0; i<4; i++){
+                      if (val1>=AL-2 && val1 <=AL+8){
+                        Serial.println("1");
+                      } 
+                      else if (val1<AL-2){
+                        Serial.println("0");
+                      }
+                      else {
+                        Serial.println("Error");
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
-  }
-
-}
-
-void loop(){
-  READ_TRIGG();
+    }
   ambientlight();
   //val1 = analogRead(PinIn1);
   //Serial.println(val1);
