@@ -6,6 +6,7 @@ double val1=0;
 //double val2=0;
 double AL=0;
 bool flag = false;
+double A0_OUTPUT=0;
 
 
 void setup() {  
@@ -15,21 +16,27 @@ void setup() {
 }
 
 void ambientlight (){
-if (flag==false){
-  delay(200);
-  for(int i=0; i<100; i++){
-     val1+=analogRead(PinIn1);
-  }
-  val1=val1/100;
-  AL=val1;
-  Serial.println("the AL values is: ");
-  Serial.println(AL);
-  flag=true;
-}
+    delay(200); //A delay provides time for the system to initialize properly 
+
+    for(int i=0; i<100; i++){
+       val1+=analogRead(PinIn1);  //For loop captures the first 100 values and add's it all together
+    }
+
+    val1=val1/100; //Creating an average of the 100 values
+
+    AL=val1;  //Saving the average as the ambient light level (AL) 
+
+    Serial.println("---------------------");
+
+    Serial.println("the AL values is: ");
+    Serial.println(AL);
+    Serial.println("---------------------");
+    
 }
 
 
 void loop(){
+  /*
   if (val1>=AL-2 && val1 <=AL+8){
       if (val1<AL-2){
         if (val1>=AL-2 && val1 <=AL+8){
@@ -56,8 +63,17 @@ void loop(){
           }
         }
       }
+    }*/
+    A0_OUTPUT=analogRead(PinIn1);
+
+    if (flag==false){ 
+    ambientlight();
+    flag=true;
     }
-  ambientlight();
+
+    Serial.println(A0_OUTPUT);
+    delay(100); 
+  
   //val1 = analogRead(PinIn1);
   //Serial.println(val1);
  }
