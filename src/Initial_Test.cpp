@@ -27,7 +27,6 @@ void ambientlight (){
     AL=val1;  //Saving the average as the ambient light level (AL) 
 
     Serial.println("---------------------");
-
     Serial.println("the AL values is: ");
     Serial.println(AL);
     Serial.println("---------------------");
@@ -64,7 +63,8 @@ void loop(){
         }
       }
     }*/
-    A0_OUTPUT=analogRead(PinIn1);
+
+    //0_OUTPUT=analogRead(PinIn1);
 
     if (flag==false){ 
     ambientlight();
@@ -73,7 +73,4 @@ void loop(){
 
     Serial.println(A0_OUTPUT);
     delay(100); 
-  
-  //val1 = analogRead(PinIn1);
-  //Serial.println(val1);
  }
